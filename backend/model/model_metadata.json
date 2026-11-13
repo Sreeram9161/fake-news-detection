@@ -1,0 +1,162 @@
+{
+  "dataset_name": "WELFake Dataset (IEEE 2021)",
+  "dataset_source": "Word Embedding-based and Linguistic Feature Assessment for Fake News Detection",
+  "dataset_citation": "P. K. Verma, P. Agrawal, I. Amorim, and R. Prodan (2021)",
+  "total_records_analyzed": 72134,
+  "cleaned_records": 23929,
+  "train_samples": 19143,
+  "test_samples": 4786,
+  "class_mapping": {
+    "0": "REAL",
+    "1": "FAKE"
+  },
+  "features_used": [
+    "title (headline)",
+    "text (article body)"
+  ],
+  "vectorizer": "TF-IDF (10,000 features, Unigram + Bigram, Sublinear TF, English Stopwords)",
+  "best_model": "Linear SVM",
+  "models_benchmarked": [
+    "Logistic Regression",
+    "Multinomial Naive Bayes",
+    "Linear SVM"
+  ],
+  "metrics_summary": {
+    "Logistic Regression": {
+      "accuracy": 0.9534057668198913,
+      "precision": 0.9535186594694632,
+      "recall": 0.9534057668198913,
+      "f1_score": 0.9534168560439372,
+      "roc_auc": 0.9912987470979497,
+      "train_time_sec": 26.805316925048828,
+      "confusion_matrix": [
+        [
+          2364,
+          128
+        ],
+        [
+          95,
+          2199
+        ]
+      ],
+      "classification_report": {
+        "REAL (0)": {
+          "precision": 0.9613664091093941,
+          "recall": 0.9486356340288925,
+          "f1-score": 0.9549585942233892,
+          "support": 2492.0
+        },
+        "FAKE (1)": {
+          "precision": 0.9449935539321014,
+          "recall": 0.9585876198779425,
+          "f1-score": 0.9517420471759359,
+          "support": 2294.0
+        },
+        "accuracy": 0.9534057668198913,
+        "macro avg": {
+          "precision": 0.9531799815207478,
+          "recall": 0.9536116269534175,
+          "f1-score": 0.9533503206996625,
+          "support": 4786.0
+        },
+        "weighted avg": {
+          "precision": 0.9535186594694632,
+          "recall": 0.9534057668198913,
+          "f1-score": 0.9534168560439372,
+          "support": 4786.0
+        }
+      }
+    },
+    "Multinomial Naive Bayes": {
+      "accuracy": 0.8660676974508984,
+      "precision": 0.8672839068078566,
+      "recall": 0.8660676974508984,
+      "f1_score": 0.8661221889142267,
+      "roc_auc": 0.939826275817577,
+      "train_time_sec": 26.25875687599182,
+      "confusion_matrix": [
+        [
+          2111,
+          381
+        ],
+        [
+          260,
+          2034
+        ]
+      ],
+      "classification_report": {
+        "REAL (0)": {
+          "precision": 0.8903416280050611,
+          "recall": 0.8471107544141252,
+          "f1-score": 0.8681883610939749,
+          "support": 2492.0
+        },
+        "FAKE (1)": {
+          "precision": 0.8422360248447205,
+          "recall": 0.8866608544027899,
+          "f1-score": 0.8638776810363135,
+          "support": 2294.0
+        },
+        "accuracy": 0.8660676974508984,
+        "macro avg": {
+          "precision": 0.8662888264248908,
+          "recall": 0.8668858044084575,
+          "f1-score": 0.8660330210651441,
+          "support": 4786.0
+        },
+        "weighted avg": {
+          "precision": 0.8672839068078566,
+          "recall": 0.8660676974508984,
+          "f1-score": 0.8661221889142267,
+          "support": 4786.0
+        }
+      }
+    },
+    "Linear SVM": {
+      "accuracy": 0.9590472210614291,
+      "precision": 0.9592495124136198,
+      "recall": 0.9590472210614291,
+      "f1_score": 0.959059734529265,
+      "roc_auc": 0.9923745523600543,
+      "train_time_sec": 28.38784408569336,
+      "confusion_matrix": [
+        [
+          2371,
+          121
+        ],
+        [
+          75,
+          2219
+        ]
+      ],
+      "classification_report": {
+        "REAL (0)": {
+          "precision": 0.9693376941946035,
+          "recall": 0.9514446227929374,
+          "f1-score": 0.9603078169299312,
+          "support": 2492.0
+        },
+        "FAKE (1)": {
+          "precision": 0.9482905982905983,
+          "recall": 0.9673060156931125,
+          "f1-score": 0.9577039274924471,
+          "support": 2294.0
+        },
+        "accuracy": 0.9590472210614291,
+        "macro avg": {
+          "precision": 0.9588141462426009,
+          "recall": 0.959375319243025,
+          "f1-score": 0.9590058722111892,
+          "support": 4786.0
+        },
+        "weighted avg": {
+          "precision": 0.9592495124136198,
+          "recall": 0.9590472210614291,
+          "f1-score": 0.959059734529265,
+          "support": 4786.0
+        }
+      }
+    }
+  },
+  "trained_timestamp": "2026-11-13 09:59:51"
+}
