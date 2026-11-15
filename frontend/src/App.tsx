@@ -11,7 +11,7 @@ import type { PredictionResponse } from './types';
 
 export const App: React.FC = () => {
   const [predictionResult, setPredictionResult] = useState<PredictionResponse | null>(() => {
-    const saved = sessionStorage.getItem('veritas_last_prediction');
+    const saved = sessionStorage.getItem('truthlens_last_prediction');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -24,7 +24,7 @@ export const App: React.FC = () => {
 
   const handlePredictionComplete = (result: PredictionResponse) => {
     setPredictionResult(result);
-    sessionStorage.setItem('veritas_last_prediction', JSON.stringify(result));
+    sessionStorage.setItem('truthlens_last_prediction', JSON.stringify(result));
   };
 
   return (

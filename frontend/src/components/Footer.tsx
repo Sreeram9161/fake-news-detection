@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <span className="text-lg font-bold text-white tracking-tight">
-                VERITAS<span className="text-sky-400">AI</span>
+                TruthLens <span className="text-sky-400">AI</span>
               </span>
             </div>
             <p className="text-sm text-slate-400 max-w-md leading-relaxed">

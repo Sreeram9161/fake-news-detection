@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <span className="text-lg font-bold tracking-tight text-white group-hover:text-sky-300 transition-colors">
-                VERITAS<span className="text-sky-400">AI</span>
+                TruthLens <span className="text-sky-400">AI</span>
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
                 WELFake ML
