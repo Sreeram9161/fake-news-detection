@@ -1,25 +1,51 @@
 import os
+import sys
 import time
+from pathlib import Path
+
+# Ensure backend root directory is on sys.path so 'app' package resolves
+# from any working directory (root, backend/, or backend/app/)
+backend_dir = str(Path(__file__).resolve().parent.parent)
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 
-from app.config import (
-    API_TITLE,
-    API_SUBTITLE,
-    API_VERSION,
-    ALLOWED_ORIGINS,
-    METADATA_PATH,
-    MODEL_PATH
-)
-from app.schemas import (
-    PredictionRequest,
-    PredictionResponse,
-    ModelInfoResponse,
-    HealthResponse
-)
-from app.predictor import predictor_instance
+try:
+    from app.config import (
+        API_TITLE,
+        API_SUBTITLE,
+        API_VERSION,
+        ALLOWED_ORIGINS,
+        METADATA_PATH,
+        MODEL_PATH
+    )
+    from app.schemas import (
+        PredictionRequest,
+        PredictionResponse,
+        ModelInfoResponse,
+        HealthResponse
+    )
+    from app.predictor import predictor_instance
+except ImportError:
+    from config import (
+        API_TITLE,
+        API_SUBTITLE,
+        API_VERSION,
+        ALLOWED_ORIGINS,
+        METADATA_PATH,
+        MODEL_PATH
+    )
+    from schemas import (
+        PredictionRequest,
+        PredictionResponse,
+        ModelInfoResponse,
+        HealthResponse
+    )
+    from predictor import predictor_instance
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -143,3 +169,8 @@ def get_model_information():
         trained_timestamp=meta.get("trained_timestamp", time.strftime("%Y-%m-%d %H:%M:%S")),
         limitations=limitations
     )
+
+if __name__ == "__main__":
+    import uvicorn
+    print(f"Starting {API_TITLE} on http://127.0.0.1:8000 ...")
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)

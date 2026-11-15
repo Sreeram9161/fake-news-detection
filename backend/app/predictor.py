@@ -1,10 +1,22 @@
 import os
+import sys
+from pathlib import Path
+
+# Ensure backend root is always on sys.path
+backend_dir = str(Path(__file__).resolve().parent.parent)
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 import re
 import json
 import logging
 from typing import Dict, Any, Optional
 import joblib
-from app.config import MODEL_PATH, METADATA_PATH
+
+try:
+    from app.config import MODEL_PATH, METADATA_PATH
+except ImportError:
+    from config import MODEL_PATH, METADATA_PATH
 
 logger = logging.getLogger(__name__)
 
