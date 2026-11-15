@@ -56,11 +56,11 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS Middleware setup - Allows all localhost/127.0.0.1 ports cleanly
+# CORS Middleware setup - Allows all localhost/127.0.0.1 ports and onrender.com origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https://.*\.onrender\.com/?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

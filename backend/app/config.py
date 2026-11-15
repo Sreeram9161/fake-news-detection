@@ -12,7 +12,7 @@ API_TITLE = "Fake News Detection System API"
 API_SUBTITLE = "AI-Powered News Authenticity Classification"
 API_VERSION = "1.0.0"
 
-# CORS Configuration - Explicit local development origins
+# CORS Configuration
 ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -22,4 +22,6 @@ ALLOWED_ORIGINS = [
     "http://127.0.0.1:4173",
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "https://fake-news-detection-1-ahpi.onrender.com",
+    "https://fake-news-detection-1-ahpi.onrender.com/",
 ]
